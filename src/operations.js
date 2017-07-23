@@ -35,7 +35,8 @@ module.exports = function (model, options, excludedMap) {
           options.contextFilter(model, req, (countFilteredContext) => {
             buildQuery(countFilteredContext.count(), _.assign(req._ermQueryOptions, {
               skip: 0,
-              limit: 0
+              limit: 0,
+              sort:''
             })).then((count) => {
               req.erm.totalCount = count
               next()
